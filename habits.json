@@ -1,0 +1,18 @@
+{
+  "habits": [
+    "💧 Drink 8 glasses of water",
+    "🏃 Exercise / walk",
+    "📚 Read for 20 minutes",
+    "🧘 Meditate / breathe",
+    "💻 Code something"
+  ],
+  "log": {
+    "2026-04-18": {
+      "💧 Drink 8 glasses of water": true,
+      "🏃 Exercise / walk": true,
+      "📚 Read for 20 minutes": true,
+      "🧘 Meditate / breathe": true,
+      "💻 Code something": true
+    }
+  }
+}
