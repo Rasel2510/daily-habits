@@ -1,6 +1,6 @@
 # 🏆 Daily Habit Tracker
 
-> Last updated: **2026-04-20 12:12**
+> Last updated: **2026-04-20 12:33**
 
 ## 📊 Last 21 Days Overview — 100% completion
 
@@ -9,7 +9,6 @@
 | 💧 Drink 8 glasses of water | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | 🟩 | ⬜ | 🟩 | 1 days | 1 days |
 | 🏃 Exercise / walk | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | 🟩 | ⬜ | 🟩 | 1 days | 1 days |
 | 📚 Read for 20 minutes | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | 🟩 | ⬜ | 🟩 | 1 days | 1 days |
-| 🧘 Meditate / breathe | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | 🟩 | ⬜ | 🟩 | 1 days | 1 days |
 | 💻 Code something | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | 🟩 | ⬜ | 🟩 | 1 days | 1 days |
 
 ## 📅 Today's Checklist
@@ -17,7 +16,6 @@
 - ✅ 💧 Drink 8 glasses of water
 - ✅ 🏃 Exercise / walk
 - ✅ 📚 Read for 20 minutes
-- ✅ 🧘 Meditate / breathe
 - ✅ 💻 Code something
 
 ---
