@@ -38,6 +38,10 @@ BOT_CONFIG  = BASE_DIR / "bot_config.json"
 # ── Load bot config ───────────────────────────────────────────────────────────
 
 def load_bot_config() -> dict:
+    token   = os.environ.get("BOT_TOKEN", "")
+    chat_id = os.environ.get("CHAT_ID", "")
+    if token and chat_id:
+        return {"token": token, "chat_id": chat_id}
     if BOT_CONFIG.exists():
         with open(BOT_CONFIG, encoding="utf-8") as f:
             return json.load(f)
