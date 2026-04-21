@@ -37,16 +37,7 @@ BOT_CONFIG  = BASE_DIR / "bot_config.json"
 
 # ── Load bot config ───────────────────────────────────────────────────────────
 
-# def load_bot_config() -> dict:
-#     if BOT_CONFIG.exists():
-#         with open(BOT_CONFIG, encoding="utf-8") as f:
-#             return json.load(f)
-#     return {"token": "", "chat_id": ""}
 def load_bot_config() -> dict:
-    token   = os.environ.get("BOT_TOKEN", "")
-    chat_id = os.environ.get("CHAT_ID", "")
-    if token and chat_id:
-        return {"token": token, "chat_id": chat_id}
     if BOT_CONFIG.exists():
         with open(BOT_CONFIG, encoding="utf-8") as f:
             return json.load(f)
@@ -125,10 +116,72 @@ def update_readme(data: dict):
     with open(README_FILE, "w", encoding="utf-8") as f:
         f.write("\n".join(lines) + "\n")
 
+def github_push(message: str) -> str:
+    """Push habits.json and README.md to GitHub using the API — works on Railway."""
+    import base64
+
+    token = os.environ.get("GITHUB_TOKEN", "")
+    repo  = os.environ.get("GITHUB_REPO", "")   # e.g. Rasel2510/daily-habits
+    branch= os.environ.get("GITHUB_BRANCH", "main")
+
+    if not token or not repo:
+        return "❌ GitHub not configured. Add GITHUB_TOKEN and GITHUB_REPO to Railway variables."
+
+    headers = {
+        "Authorization": f"token {token}",
+        "Accept": "application/vnd.github.v3+json",
+    }
+    base_url = f"https://api.github.com/repos/{repo}/contents"
+    results  = []
+
+    files_to_push = {
+        "habits.json": DATA_FILE,
+        "README.md":   README_FILE,
+    }
+
+    for filename, filepath in files_to_push.items():
+        if not filepath.exists():
+            continue
+        try:
+            with open(filepath, "rb") as f:
+                content     = f.read()
+            encoded_content = base64.b64encode(content).decode("utf-8")
+
+            # Get current SHA (needed for update)
+            get_resp = requests.get(f"{base_url}/{filename}",
+                headers={**headers, "ref": branch}, timeout=10)
+            sha = get_resp.json().get("sha", "") if get_resp.status_code == 200 else ""
+
+            payload = {
+                "message": message,
+                "content": encoded_content,
+                "branch":  branch,
+            }
+            if sha:
+                payload["sha"] = sha
+
+            put_resp = requests.put(f"{base_url}/{filename}",
+                headers=headers, json=payload, timeout=15)
+
+            if put_resp.status_code in (200, 201):
+                results.append(f"✅ {filename} pushed")
+            else:
+                results.append(f"❌ {filename} failed: {put_resp.json().get('message','unknown error')}")
+        except Exception as e:
+            results.append(f"❌ {filename} error: {e}")
+
+    return "\n".join(results) if results else "❌ Nothing to push."
+
+
 def git_push(message: str) -> str:
+    """Try GitHub API first (Railway), fall back to local git."""
+    github_token = os.environ.get("GITHUB_TOKEN", "")
+    if github_token:
+        return github_push(message)
+    # Local git fallback
     try:
         if not (BASE_DIR / ".git").exists():
-            return "❌ Git repo not found."
+            return "❌ Git repo not found. Add GITHUB_TOKEN to Railway variables."
         subprocess.run(["git", "add", "habits.json", "README.md"], cwd=BASE_DIR, check=True)
         result = subprocess.run(["git", "diff", "--cached", "--quiet"], cwd=BASE_DIR)
         if result.returncode == 0:
@@ -138,7 +191,7 @@ def git_push(message: str) -> str:
         if remotes.stdout.strip():
             subprocess.run(["git", "push"], cwd=BASE_DIR, check=True)
             return "✅ Committed and pushed to GitHub!"
-        return "✅ Committed locally (no remote configured)."
+        return "✅ Committed locally."
     except Exception as e:
         return f"❌ Git error: {e}"
 
