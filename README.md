@@ -1,6 +1,6 @@
 # 🏆 Daily Habit Tracker
 
-> Last updated: **2026-04-28 05:14**
+> Last updated: **2026-04-28 05:16**
 
 ## 📊 Last 21 Days
 
@@ -10,7 +10,6 @@
 | 🏃 Exercise / walk | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | 🟩 | ⬜ | 🟩 | 🟩 | 🟩 | 🟩 | 🟩 | ⬜ | ⬜ | ⬜ | 🟩 | 1 days | 1 days |
 | 📚 Read for 20 minutes | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | 🟩 | ⬜ | 🟩 | 🟩 | 🟩 | 🟩 | 🟩 | ⬜ | ⬜ | ⬜ | ⬜ | 0 days | 0 days |
 | 💻 Code something | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | 🟩 | ⬜ | 🟩 | 🟩 | 🟩 | 🟩 | 🟩 | ⬜ | ⬜ | ⬜ | 🟩 | 1 days | 1 days |
-| code today | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | 🟩 | 🟩 | 🟩 | 🟩 | 🟩 | ⬜ | ⬜ | ⬜ | 🟩 | 1 days | 1 days |
 
 ## 📅 Today
 
@@ -18,7 +17,6 @@
 - ✅ 🏃 Exercise / walk
 - ⬜ 📚 Read for 20 minutes
 - ✅ 💻 Code something
-- ✅ code today
 
 ---
 🟩 = Done   ⬜ = Missed
